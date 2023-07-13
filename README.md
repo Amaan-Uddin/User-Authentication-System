@@ -58,6 +58,8 @@ Contributions are welcome! If you find any issues or want to enhance the User Au
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/Amaan-Uddin/User-Authentication-System/blob/main/LICENSE) file for details.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Acknowledgments
 
 - [Node.js](https://nodejs.org)
