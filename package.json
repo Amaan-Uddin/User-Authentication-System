@@ -1,18 +1,17 @@
 {
 	"name": "user-authentication-system",
 	"version": "1.0.0",
-	"description": "A User Authentication System application with all the essential options",
+	"description": "A user authentication system to verify user identity to ensure secure access to protected resources.",
 	"main": "server.js",
 	"scripts": {
 		"start": "node server",
 		"dev": "nodemon server"
 	},
 	"keywords": [],
-	"author": "amaan-uddin",
+	"author": "Mohammed Amaan Uddin",
 	"license": "MIT",
 	"dependencies": {
 		"bcrypt": "^5.1.0",
-		"cookie": "^0.5.0",
 		"cookie-parser": "^1.4.6",
 		"dotenv": "^16.3.1",
 		"ejs": "^3.1.9",
