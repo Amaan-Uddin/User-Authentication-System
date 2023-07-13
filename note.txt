@@ -1,0 +1,14 @@
+come after 7 days to allow your email to send 6-digits otp
+you've turned on 2x factor-auth
+
+
+
+to work with 'Remember me' we need to install the cookie module,
+ set the expiration date to be from the date of creation to the actual date for expiration
+ we need to serialize the cookie, specify the cookie name,value and options
+ we then need to send the cookie and it's content to the browser as a persistent cookie and 
+ set the response header res.setHeader('Set-cookie',PersistentCookieString)
+
+on the client side we will have to call a fetch request based on the value of the check box
+ the fetch request will be directed to our server routes and the method will be a post method and 
+ we also need to send the request header and body, we also require to handle the promises that are created by fetch
