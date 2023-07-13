@@ -31,6 +31,7 @@ Follow these steps to get the User Authentication System up and running on your 
 2.  Install dependencies:
 
     `cd User-Authentication-System`
+
     `npm install`
 
 3.  Set up the MongoDB connection:
