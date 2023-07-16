@@ -18,7 +18,7 @@ The User Authentication System is a secure and reliable mechanism designed to ve
 - MongoDB: NoSQL document database for flexible and scalable data storage.
 - Mongoose: Object Data Modeling (ODM) library for MongoDB and Node.js.
 - EJS: Templating engine for generating dynamic HTML content.
-- CSS: Styling language used for enhancing the user interface.
+- Bootstrap: A versatile front-end framework for building responsive and sleek web applications.
 
 ## Getting Started
 
@@ -50,6 +50,19 @@ Follow these steps to get the User Authentication System up and running on your 
 
 6.  Open your web browser and visit [http://localhost:3000](http://localhost:3000/) to access the User Authentication System.
 
+## Note:
+
+Please note that when running the code on your local machine, it is important to set up an `.env` file with all the required configurations. This file should include the following information:
+
+- `DATABASE_URI`: The URI or path to your MongoDB database.
+- `ACCESS_TOKEN_SECRET`: The secret key used for generating access tokens.
+- `REFRESH_TOKEN_SECRET`: The secret key used for generating refresh tokens.
+- `REMEMBER_TOKEN_SECRET`: The secret key used for generating remember tokens.
+- `EMAIL_ADD`: The email address used for sending email notifications.
+- `PASSWORD`: The password for the above email address, used for authentication in nodemailer syntax.
+
+Make sure to set the values for these configurations in your `.env` file before running the User Authentication System on your local machine.
+
 ## Contributing
 
 Contributions are welcome! If you find any issues or want to enhance the User Authentication System, feel free to submit a pull request. Please follow the existing code style and guidelines.
@@ -57,8 +70,6 @@ Contributions are welcome! If you find any issues or want to enhance the User Au
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/Amaan-Uddin/User-Authentication-System/blob/main/LICENSE) file for details.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Acknowledgments
 
