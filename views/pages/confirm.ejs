@@ -14,23 +14,29 @@
 	</head>
 	<body>
 		<div class="container d-flex justify-content-center mb-2">
-			<a href="/auth/log" class="text-decoration-none">Go back</a>
+			<a href="/auth/forgot" class="text-decoration-none">Go back</a>
 		</div>
 		<div
 			class="container card d-flex flex-column align-items-center justify-content-center p-4"
 			id="box"
 		>
 			<h4 class="card-title">Confirm Email</h4>
-			<!-- <div>
-				Can't Log in?
-				<a href="/auth/sign" class="text-decoration-none">Need more help</a>
-			</div> -->
+
 			<form action="/auth/confirm/<%=email%>" method="post" class="w-100">
 				<%- include('../partials/_confirm_fields.ejs') %>
+				<div class="d-flex mt-3 justify-content-between w-100 px-4">
+					<a href="/auth/resend/<%=email%>" class="text-decoration-none">
+						Resend OTP
+					</a>
+					<div class="timer text-danger" id="timer">
+						<span class="minutes">4</span>:<span class="seconds">59</span>
+					</div>
+				</div>
 				<div class="px-4">
 					<button type="submit" class="btn btn-primary mt-4 w-100">Send</button>
 				</div>
 			</form>
 		</div>
+		<script src="/scripts/timer.js"></script>
 	</body>
 </html>

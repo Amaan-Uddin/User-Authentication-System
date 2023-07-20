@@ -5,7 +5,6 @@ const tokens = require('../config/tokens');
 const checkInfo = async (req, res, next) => {
 	const cookie = req.cookies;
 	if (!cookie?.info) {
-		console.log('no cookie');
 		return next();
 	}
 

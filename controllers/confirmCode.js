@@ -9,7 +9,7 @@ const confirmCode = async (req, res) => {
 	// check for cookies
 	const cookie = req.cookies;
 	if (!cookie?.enc) {
-		return res.sendStatus(403);
+		return res.status(403).send('The OTP has expired');
 	}
 
 	// get the encrypted code form the cookie
@@ -19,9 +19,10 @@ const confirmCode = async (req, res) => {
 	try {
 		const verifyCode = await bcrypt.compare(code, hashCode);
 		if (verifyCode) {
+			res.clearCookie('enc', { httpOnly: true });
 			return res.redirect(`/auth/reset/${req.params.email}`);
 		}
-		res.sendStatus(403);
+		res.status(403).send('The OTP given is incorrect.');
 	} catch (error) {
 		console.error(error);
 		res.sendStatus(500);

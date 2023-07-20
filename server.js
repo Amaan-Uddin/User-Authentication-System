@@ -10,6 +10,7 @@ const connectDB = require('./config/dbConn');
 
 const authRouter = require('./routes/auth');
 const mainRouter = require('./routes/main');
+const unAuthRouter = require('./routes/unauthorized');
 
 PORT = process.env.PORT || 3000;
 
@@ -43,6 +44,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', authRouter);
 app.use('/main', mainRouter);
+app.use('/unauthorized', unAuthRouter);
 
 mongoose.connection.once('open', () => {
 	console.log('Connected to DB');

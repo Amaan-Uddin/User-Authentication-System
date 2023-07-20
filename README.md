@@ -9,6 +9,7 @@ The User Authentication System is a secure and reliable mechanism designed to ve
 - **User Identification:** Register and authenticate users using their email addresses.
 - **Access Control:** Grant authorized access to protected resources based on user authentication.
 - **Secure Communication:** Implement secure communication protocols (e.g., HTTPS) to protect user credentials and sensitive data.
+- **OAuth2 Integration:** Allow users to sign in using their Google accounts via OAuth2 authentication.
 
 ## Tech Stack
 
@@ -19,10 +20,9 @@ The User Authentication System is a secure and reliable mechanism designed to ve
 - Mongoose: Object Data Modeling (ODM) library for MongoDB and Node.js.
 - EJS: Templating engine for generating dynamic HTML content.
 - Bootstrap: A versatile front-end framework for building responsive and sleek web applications.
+- Googleapis: Package for integrating with Google services, including OAuth2.
 
 ## Getting Started
-
-Follow these steps to get the User Authentication System up and running on your local machine:
 
 1.  Clone the repository:
 
@@ -44,24 +44,43 @@ Follow these steps to get the User Authentication System up and running on your 
     - Generate an access token secret and refresh token secret.
     - Update the JWT configuration in the project's configuration file, including the secret keys.
 
-5.  Start the server:
+5.  Set up OAuth2 with Google:
+
+    - Go to the [Google Cloud Console](https://console.cloud.google.com/) and create a new project.
+    - Enable the "Google+ API" and "Gmail API" for your project.
+    - Navigate to the "Credentials" section in the Google Cloud Console for your project.
+    - Click on "Create Credentials" and select "OAuth client ID."
+    - Choose "Web application" as the application type
+    - Set the "Authorized redirect URIs" to your callback URL for OAuth2 authentication
+    - Click "Create" to generate the OAuth2 client ID and client secret.
+
+6.  Configure the OAuth2 client in your project:
+
+    - Create an OAuth2 client with your client ID, client secret, and redirect URI:
+
+      `const oauth2Client = new google.auth.OAuth2(
+  'YOUR_CLIENT_ID',
+  'YOUR_CLIENT_SECRET',
+  'YOUR_REDIRECT_URI'
+);`
+
+7.  Start the server:
 
     `npm start`
 
-6.  Open your web browser and visit [http://localhost:3000](http://localhost:3000/) to access the User Authentication System.
+8.  Open your web browser and visit [http://localhost:3000](http://localhost:3000/) to access the User Authentication System.
 
 ## Note:
 
-Please note that when running the code on your local machine, it is important to set up an `.env` file with all the required configurations. This file should include the following information:
+Before running the code on your local machine, set up an `.env` file with the required configurations:
 
 - `DATABASE_URI`: The URI or path to your MongoDB database.
 - `ACCESS_TOKEN_SECRET`: The secret key used for generating access tokens.
 - `REFRESH_TOKEN_SECRET`: The secret key used for generating refresh tokens.
-- `REMEMBER_TOKEN_SECRET`: The secret key used for generating remember tokens.
-- `EMAIL_ADD`: The email address used for sending email notifications.
-- `PASSWORD`: The password for the above email address, used for authentication in nodemailer syntax.
-
-Make sure to set the values for these configurations in your `.env` file before running the User Authentication System on your local machine.
+- `REMEMBER_TOKEN_SECRET`: The secret key used for generating remember tokens (i.e. Remember Me Tokens).
+- `GOOGLE_CLIENT_ID`: The client ID obtained from the Google Cloud Console for OAuth2 authentication.
+- `GOOGLE_CLIENT_SECRET`: The client secret obtained from the Google Cloud Console for OAuth2 authentication.
+- `GOOGLE_REDIRECT_URI`: The redirect URI for OAuth2 authentication (e.g., [https://developers.google.com/oauthplayground](https://developers.google.com/oauthplayground)).
 
 ## Contributing
 
@@ -73,10 +92,12 @@ This project is licensed under the MIT License. See the [LICENSE](https://github
 
 ## Acknowledgments
 
-- [Node.js](https://nodejs.org)
-- [Express](https://expressjs.com)
-- [MongoDB](https://www.mongodb.com)
-- [Mongoose](https://mongoosejs.com)
-- [EJS](https://ejs.co)
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [EJS](https://ejs.co/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Googleapis](https://www.npmjs.com/package/googleapis)
 
 Thank you for using the User Authentication System! If you have any questions or need assistance, please feel free to reach out.

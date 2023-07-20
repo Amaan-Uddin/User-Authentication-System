@@ -12,3 +12,40 @@ to work with 'Remember me' we need to install the cookie module,
 on the client side we will have to call a fetch request based on the value of the check box
  the fetch request will be directed to our server routes and the method will be a post method and 
  we also need to send the request header and body, we also require to handle the promises that are created by fetch
+
+
+
+what are pushstate and popstate?
+ 
+pushState:
+The pushState method allows you to add a new state to the browser's history without triggering a full page reload. It is typically used in conjunction with client-side routing to change the URL displayed in the address bar and update the page content dynamically, without actually fetching a new HTML document from the server.
+The pushState method takes three arguments:
+
+state: This is an object that represents the state associated with the new history entry. It allows you to store    custom data related to the specific page or application state.
+
+title: This argument is currently ignored by most browsers, so it is usually set to an empty string.
+
+url: This is the URL that will be displayed in the address bar after the state change. It doesn't trigger a server request; instead, it's used for bookmarking and sharing purposes.
+
+Example of using pushState:
+
+const pageTitle = '';
+const newURL = '/home';
+
+history.pushState(stateData, pageTitle, newURL);
+
+popstate:
+The popstate event is fired when the user navigates through the browser history using the back or forward buttons or when JavaScript calls the history.back(), history.forward(), or history.go() methods.
+
+When the popstate event is triggered, you can access the state data associated with the new history entry using the event.state property. This allows you to retrieve the custom data you stored when using pushState.
+
+Example of using popstate:
+
+window.addEventListener('popstate', (event) => {
+  if (event.state) {
+    // Access the custom state data associated with the history entry
+    const stateData = event.state;
+    // Do something with the state data (e.g., update the page content based on the state)
+  }
+});
+By using pushState and listening for the popstate event, you can build more interactive and dynamic web applications while still allowing users to navigate through the application using the browser's back and forward buttons.

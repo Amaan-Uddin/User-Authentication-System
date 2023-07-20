@@ -16,16 +16,13 @@
 		<div
 			class="container d-flex flex-column align-items-center justify-content-center"
 		>
-			<h1>Hello <span class="text-primary"><%=email%></span></h1>
-			<div
-				class="d-flex mt-4 align-items-center justify-content-between px-4 gap-4"
+			<h1>Un-Authroized</h1>
+			<a
+				href="/unauthorized/<%=email%>/refresh"
+				class="btn btn-primary mt-3 text-light"
+				>Refresh</a
 			>
-				<a href="/main/<%=email%>/access" class="btn btn-success">Access</a>
-				<a href="/main/<%=email%>/remove" class="btn btn-primary"
-					>Revoke Access</a
-				>
-				<a href="/main/logout" class="btn btn-danger">Logout</a>
-			</div>
 		</div>
+		<script src="/scripts/disableBackButton.js"></script>
 	</body>
 </html>
